@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Game</title>
+</head>
+
+<body>
+    <button onclick="play()">Play</button>
+    <button onclick="reset()">Reset</button>
+    <hr>
+    <div class="game">
+        <div class="items">
+            <div class="item"><img src="packsolo1.png" alt=""></div>
+            <div class="item"><img src="expresso.png" alt=""></div>
+            <div class="item"><img src="b47a0f8c-181b-4eed-a7b6-a0d933df4cf9_.webp" alt=""></div>
+            <div class="item"><img src="packsolo1.png" alt=""></div>
+            <div class="item"><img src="voiture.png" alt=""></div>
+        </div>
+        <div class="items">
+            <div class="item"><img src="expresso.png" alt=""></div>
+            <div class="item"><img src="b47a0f8c-181b-4eed-a7b6-a0d933df4cf9_.webp" alt=""></div>
+            <div class="item"><img src="packsolo1.png" alt=""></div>
+            <div class="item"><img src="expresso.png" alt=""></div>
+            <div class="item"><img src="voiture.png" alt=""></div>
+        </div>
+        <div class="items">
+            <div class="item"><img src="b47a0f8c-181b-4eed-a7b6-a0d933df4cf9_.webp" alt=""></div>
+            <div class="item"><img src="packsolo1.png" alt=""></div>
+            <div class="item"><img src="expresso.png" alt=""></div>
+            <div class="item"><img src="b47a0f8c-181b-4eed-a7b6-a0d933df4cf9_.webp" alt=""></div>
+            <div class="item"><img src="voiture.png" alt=""></div>
+        </div>
+    </div>
+</body>
+<script>
+    function play() {
+        document.querySelector('.game').classList.add('play');
+    }
+    function reset() {
+        document.querySelector('.game').classList.remove('play');
+    }
+</script>
+<style>
+    .game {
+        display: none;
+    }
+    .game.play {
+        display: flex;
+        overflow: hidden;
+        width: 400px;
+        height: 100px;
+    }
+
+    .items {
+        flex: 1;
+    }
+
+    .item {
+        position: relative;
+        top: 0px;
+        height: 100%;
+        animation: roll 0.5s linear 0.5s 7 forwards, win 0.5s ease-out 4s forwards;
+    }
+
+    .items:nth-child(2) .item {
+        animation: roll 0.5s linear 1s 7 forwards, win 0.5s ease-out 4.5s forwards;
+    }
+
+    .items:nth-child(3) .item {
+        animation: roll 0.5s linear 1.5s 7 forwards, win 0.5s ease-out 5s forwards;
+    }
+
+    .item img {
+        width: 100%;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    @keyframes roll {
+        from {
+            top: 0px;
+        }
+
+        to {
+            top: -300%;
+        }
+    }
+
+    @keyframes win {
+        from {
+            top: -300%;
+        }
+
+        to {
+            top: -400%;
+        }
+    }
+</style>
+
+</html>
